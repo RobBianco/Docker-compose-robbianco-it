@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Benvenuto</title>
+    <style>
+      /* Sfondo a tutta pagina */
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #4a90e2, #145c9e);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+
+      .container {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 40px 60px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 2.5rem;
+      }
+
+      button {
+        background-color: #1e90ff;
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        margin: 0 15px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0d62d8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sito di Rob Bianco</h1>
+      <button
+        onclick="window.location.href='https://robbianco.it/be/Hardware/sensors'"
+      >
+        Naviga
+      </button>
+      <button onclick="askPassword()" style="margin-top: 10px;">Per Noemi</button>
+    </div>
+
+    <script>
+      async function askPassword() {
+        const pwd = prompt("Il generale:");
+        if (pwd === null) {
+          alert("Hai annullato l'inserimento della password.");
+          return;
+        }
+        if (pwd.trim() === "") {
+          alert("Password vuota, riprova.");
+          return;
+        }
+
+        try {
+          // Costruisco l'URL con query string per la GET
+          const url = new URL("https://robbianco.it/be/Login/binturong");
+          url.searchParams.append("psw", pwd);
+
+          const response = await fetch(url.toString(), {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            alert("Errore nella chiamata al serveree.");
+            return;
+          }
+
+          // La risposta è un JSON booleano (true/false)
+          const result = await response.json();
+
+          if (result === true) {
+            window.location.href = "https://robbianco.it/binturong";
+          } else {
+            alert("Password errata, riprova.");
+          }
+        } catch (error) {
+          alert("Errore: " + error.message);
+        }
+      }
+    </script>
+  </body>
+</html>

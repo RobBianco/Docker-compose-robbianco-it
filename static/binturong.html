@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ti Amo Tanto mio Binturong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            background-attachment: fixed;
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .main-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #8b0000;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .photo-container {
+            position: absolute;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease;
+            background: #fff;
+            padding: 5px;
+            /* Rimuovo width/height generici, gestisco per container */
+        }
+
+        .photo-container:hover {
+            transform: scale(1.35) rotate(2deg);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .container1 {
+            top: 10%;
+            left: 5%;
+            width: 440px;
+            height: 340px;
+            animation: float1 6s ease-in-out infinite;
+            transform: rotate(-8deg);
+        }
+
+        .container2 {
+            top: 15%;
+            right: 8%;
+            width: 280px;
+            height: 220px;
+            animation: float2 7s ease-in-out infinite;
+            transform: rotate(8deg);
+        }
+
+        .container3 {
+            top: 5%;
+            left: 35%;
+            width: 360px;
+            height: 280px;
+            animation: float3 8s ease-in-out infinite;
+            transform: rotate(-6deg);
+        }
+
+        .container4 {
+            bottom: 25%;
+            right: 5%;
+            width: 240px;
+            height: 180px;
+            animation: float1 5s ease-in-out infinite;
+            transform: rotate(10deg);
+        }
+
+        .container5 {
+            top: 60%;
+            left: 15%;
+            width: 400px;
+            height: 300px;
+            animation: float2 6.5s ease-in-out infinite;
+            transform: rotate(-10deg);
+        }
+
+        .container6 {
+            top: 70%;
+            right: 20%;
+            width: 320px;
+            height: 240px;
+            animation: float3 7.5s ease-in-out infinite;
+            transform: rotate(6deg);
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff1744;
+            font-size: 2rem;
+            animation: heartbeat 2s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .heart1 { top: 5%; left: 25%; animation-delay: 0s; }
+        .heart2 { top: 20%; right: 30%; animation-delay: 0.5s; }
+        .heart3 { bottom: 15%; left: 35%; animation-delay: 1s; }
+        .heart4 { bottom: 30%; right: 25%; animation-delay: 1.5s; }
+        .heart5 { top: 35%; left: 10%; animation-delay: 2s; }
+        .heart6 { top: 45%; right: 15%; animation-delay: 2.5s; }
+        .heart7 { bottom: 5%; left: 60%; animation-delay: 3s; }
+        .heart8 { top: 25%; left: 70%; animation-delay: 3.5s; }
+        .heart9 { bottom: 40%; right: 40%; animation-delay: 4s; }
+        .heart10 { top: 65%; right: 60%; animation-delay: 4.5s; }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(-1deg); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(0.5deg); }
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #ffd700;
+            font-size: 1.5rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .sparkle1 { top: 8%; left: 45%; animation-delay: 0s; }
+        .sparkle2 { top: 80%; right: 45%; animation-delay: 1s; }
+        .sparkle3 { top: 40%; left: 5%; animation-delay: 2s; }
+        .sparkle4 { top: 30%; right: 8%; animation-delay: 0.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                padding: 20px 30px;
+            }
+            .photo-container {
+                width: 120px !important;
+                height: 90px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-title">
+        TI AMO TANTO<br>MIO BINTURONG
+    </div>
+
+    <div class="photo-container container1">
+        <img src="https://media.wired.com/photos/59331b93a4b3d04a47189522/3:2/w_1920,c_limit/Binturong-11.jpg" alt="Binturong adorabile">
+    </div>
+
+    <div class="photo-container container2">
+        <img src="https://www.balisafarimarinepark.com/wp-content/uploads/2023/04/zyro-image-1-1024x683.jpg" alt="Binturong dolcissimo">
+    </div>
+
+    <div class="photo-container container3">
+        <img src="https://m.media-amazon.com/images/I/81T9oFbsqoL._UF1000,1000_QL80_.jpg" alt="Binturong bellissimo">
+    </div>
+
+    <div class="photo-container container4">
+        <img src="https://www.hoo-zoo.com/wp-content/uploads/2016/07/12009594_10206677431187922_4824491255506726835_n.jpg" alt="Binturong meraviglioso">
+    </div>
+
+    <div class="photo-container container5">
+        <img src="https://bealepark.org.uk/wp-content/uploads/2024/08/Binturong-Thumbnail-1.webp" alt="Binturong fantastico">
+    </div>
+
+    <div class="photo-container container6">
+        <img src="https://media.istockphoto.com/id/466929993/it/foto/binturong-o-bearcat-notte.jpg?s=612x612&w=0&k=20&c=BLIDaeEPqw-vRINp1faJMsEphKMDDHBLA4Tb5SWBHsE=" alt="Binturong stupendo">
+    </div>
+
+    <div class="heart heart1">💖</div>
+    <div class="heart heart2">❤️</div>
+    <div class="heart heart3">💕</div>
+    <div class="heart heart4">💗</div>
+    <div class="heart heart5">💖</div>
+    <div class="heart heart6">❤️</div>
+    <div class="heart heart7">💕</div>
+    <div class="heart heart8">💗</div>
+    <div class="heart heart9">💖</div>
+    <div class="heart heart10">❤️</div>
+
+    <div class="sparkle sparkle1">✨</div>
+    <div class="sparkle sparkle2">⭐</div>
+    <div class="sparkle sparkle3">✨</div>
+    <div class="sparkle sparkle4">⭐</div>
+</body>
+</html>

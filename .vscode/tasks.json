@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker full",
+      "type": "process",
+      "command": "powershell",
+      "icon": {
+                "id": "debug-start",
+            },
+      "args": [
+        "-Command",
+        "docker compose pull; docker compose down; docker image prune -f; docker compose up -d"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      
+    },
+    {
+      "label": "docker down",
+      "type": "process",
+      "command": "powershell",
+      "icon": {
+                "id": "debug-start",
+            },
+      "args": [
+        "-Command",
+        "docker compose pull; docker compose down; docker image prune -f;"
+      ],
+      "group": {
+        "kind": "build",
+      }
+    },
+    {
+      "label": "docker up",
+      "type": "process",
+      "command": "powershell",
+      "icon": {
+                "id": "debug-start",
+            },
+      "args": [
+        "-Command",
+        "docker compose pull; docker image prune -f; docker compose up -d"
+      ],
+      "group": {
+        "kind": "build",
+      }
+    }
+  ]
+}
+
